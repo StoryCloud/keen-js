@@ -97,15 +97,19 @@ module.exports = function(){
     capabilities: dataTypes,
     dependencies: [{
       type: 'script',
-      url: 'https://www.gstatic.com/charts/loader.js',
+      url: 'https://www.google.com/jsapi',
       cb: function(done) {
         if (typeof google === 'undefined'){
           this.trigger("error", "Problem loading Google Charts library. Please contact us!");
           done();
         }
         else {
-            google.charts.load('43', { packages: ['corechart', 'table'] });
-            google.charts.setOnLoadCallback(done);
+          google.load('visualization', '1.1', {
+              packages: ['corechart', 'table'],
+              callback: function(){
+                done();
+              }
+          });
         }
       }
     }]
