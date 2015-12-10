@@ -4382,7 +4382,7 @@ module.exports = function(){
           done();
         }
         else {
-            google.charts.load('43', { packages: ['corechart', 'table', 'geochart'] });
+            google.charts.load('43', { packages: ['corechart', 'table'] });
             google.charts.setOnLoadCallback(done);
         }
       }
